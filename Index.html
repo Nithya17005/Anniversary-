@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>💖 நித்யா ❤️ திருப்பதி 💖</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+overflow:hidden;
+overflow-y:auto;
+background:linear-gradient(180deg,#020111,#0b1b47,#22002f);
+color:white;
+}
+
+/* Night Sky */
+
+.sky{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+overflow:hidden;
+z-index:-2;
+}
+
+.star{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+border-radius:50%;
+animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+from{opacity:.3;}
+to{opacity:1;}
+}
+
+.moon{
+position:absolute;
+top:60px;
+right:60px;
+width:120px;
+height:120px;
+background:white;
+border-radius:50%;
+box-shadow:0 0 50px white;
+}
+
+/* Gift Screen */
+
+#giftPage{
+width:100%;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+}
+
+.gift{
+font-size:120px;
+cursor:pointer;
+animation:giftFloat 3s infinite;
+transition:.5s;
+}
+
+.gift:hover{
+transform:scale(1.1);
+}
+
+@keyframes giftFloat{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-20px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+.title{
+font-size:38px;
+margin-top:20px;
+}
+
+.sub{
+margin-top:10px;
+font-size:20px;
+color:#ffd5ea;
+}
+
+.tap{
+margin-top:25px;
+font-size:18px;
+animation:blink 1s infinite;
+}
+
+@keyframes blink{
+
+50%{
+opacity:.4;
+}
+
+}
+
+/* Password */
+
+#passwordPage{
+display:none;
+width:100%;
+height:100vh;
+justify-content:center;
+align-items:center;
+}
+
+.box{
+width:350px;
+padding:35px;
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(12px);
+border-radius:20px;
+text-align:center;
+}
+
+.box h2{
+margin-bottom:20px;
+}
+
+.box input{
+width:100%;
+padding:15px;
+border:none;
+border-radius:10px;
+margin-top:15px;
+font-size:18px;
+outline:none;
+}
+
+.box button{
+margin-top:20px;
+padding:15px 35px;
+border:none;
+border-radius:30px;
+background:#ff4081;
+color:white;
+font-size:18px;
+cursor:pointer;
+}
+
+.box button:hover{
+background:#e91e63;
+}
+
+.hero{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero h1{
+font-size:30px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:18px;
+line-height:1.8;
+margin:15px;
+max-width:700px;
+}
+
+.hero button{
+padding:15px 25px;
+background:#ff4081;
+color:#fff;
+border:none;
+border-radius:30px;
+font-size:18px;
+cursor:pointer;
+margin-top:20px;
+}
+
+@media (max-width:600px){
+
+.hero h1{
+font-size:22px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+.moon{
+width:90px;
+height:90px;
+top:20px;
+right:20px;
+}
+
+}
+.love-counter{
+margin-top:30px;
+text-align:center;
+}
+
+.love-counter h2{
+font-size:30px;
+color:#ffb6d9;
+margin-bottom:20px;
+}
+
+.love-counter div{
+margin:10px auto;
+padding:12px;
+width:280px;
+background:rgba(255,255,255,.15);
+border-radius:15px;
+font-size:20px;
+}
+
+.forever{
+margin-top:20px;
+font-size:22px;
+color:#ffd700;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="sky">
+
+<div class="moon"></div>
+
+</div>
+
+<section id="giftPage">
+
+<div class="gift" onclick="openGift()">
+🎁
+</div>
+
+<h1 class="title">
+உங்களுக்கான ஒரு சிறிய பரிசு ❤️
+</h1>
+
+<p class="sub">
+என் அன்பு மாமாவிற்கு...
+</p>
+
+<p class="tap">
+🎁 Gift-ஐ Touch செய்யுங்கள்
+</p>
+
+</section>
+
+<section id="passwordPage">
+
+<div class="box">
+
+<h2>🔐 Password</h2>
+
+<p>
+நாம் முதலில் சந்தித்த தேதியை உள்ளிடுங்கள் ❤️
+</p>
+
+<input
+type="password"
+id="password"
+placeholder="DDMMYYYY">
+
+<button onclick="checkPassword()">
+
+Unlock ❤️
+
+<div class="love-counter">
+
+<h3>❤️ நாம் ஒன்றாக ❤️</h3>
+
+<div id="years"></div>
+
+<div id="days"></div>
+
+<div id="hours"></div>
+
+<div id="minutes"></div>
+
+<div id="seconds"></div>
+
+<p class="forever">
+
+💖 Forever & Always 💖
+
+</p>
+
+</div>
+
+</button>
+
+</div>
+
+</section>
+<!-- =========================
+     HOME PAGE
+========================= -->
+
+<section id="homePage" style="display:none;">
+
+<div class="hero">
+
+<h1>
+❤️ இனிய திருமண நாள் நல்வாழ்த்துகள் மாமா ❤️
+</h1>
+
+<p>
+
+17.01.2024 ❤️
+
+நாம் முதன்முதலில் சந்தித்த நாள்...
+
+அந்த நாளிலிருந்து என் வாழ்க்கையே மாறிவிட்டது.
+
+</p>
+
+<p>
+
+07.07.2024 💍
+
+நீ என் கணவராக மாறிய நாள்...
+
+அது என் வாழ்வின் மிக அழகான நாள்.
+
+</p>
+
+<button onclick="showStory()">
+
+நம் காதல் கதையை படிக்க ❤️
+
+</button>
+
+</div>
+
+</section>
+
+<!-- =========================
+     LOVE STORY
+========================= -->
+
+<section id="storyPage" style="display:none;">
+
+<div class="hero">
+
+<h1>
+💖 நம் காதல் கதை 💖
+</h1>
+
+<p>
+
+உன்னை முதன்முதலில் பார்த்த நாள்...
+
+என் இதயம் ஏதோ புதிதாக உணர்ந்தது.
+
+</p>
+
+<p>
+
+ஒவ்வொரு நாளும்...
+
+உன் அன்பு...
+
+உன் அக்கறை...
+
+உன் சிரிப்பு...
+
+என் வாழ்க்கையை முழுமையாக்கியது.
+
+</p>
+
+<p>
+
+இன்று...
+
+நான் மிகவும் சந்தோஷமாக இருக்கிறேன்...
+
+ஏனெனில்...
+
+நான் உன் மனைவி ❤️
+
+</p>
+
+<button onclick="showGallery()">
+
+நம் நினைவுகள் 📸
+
+</button>
+
+</div>
+
+</section>
+
+<!-- =========================
+     PHOTO SLIDESHOW
+========================= -->
+
+<section id="galleryPage" style="display:none;">
+
+<h1 style="text-align:center;margin-top:30px;">
+
+📸 நம் இனிய நினைவுகள் ❤️
+
+</h1>
+
+<div style="display:flex;justify-content:center;margin-top:30px;">
+
+<img
+
+id="slideImage"
+
+src="photo1.jpg"
+
+style="width:320px;
+height:420px;
+border-radius:20px;
+object-fit:cover;
+box-shadow:0 0 25px pink;">
+
+</div>
+
+<p
+style="text-align:center;
+margin-top:20px;
+font-size:20px;">
+
+ஒவ்வொரு புகைப்படமும்...
+
+ஒரு அழகான நினைவு ❤️
+
+</p>
+
+<button
+
+style="display:block;
+margin:30px auto;"
+
+onclick="showLetter()">
+
+அடுத்தது 💌
+
+</button>
+
+</section>
+<!-- =========================
+     LOVE LETTER
+========================= -->
+
+<section id="letterPage" style="display:none;">
+
+<div class="hero">
+
+<h1>💌 என் அன்பு மாமாவிற்கு...</h1>
+
+<div style="max-width:800px;margin:auto;padding:20px;
+line-height:2;font-size:20px;text-align:left;">
+
+<p>
+
+என் அன்பு மாமா... ❤️
+
+</p>
+
+<p>
+
+17.01.2024 அன்று உன்னை முதன்முதலில் பார்த்த அந்த நொடி...
+
+இன்றும் என் மனதில் அழியாமல் இருக்கிறது.
+
+</p>
+
+<p>
+
+07.07.2024 அன்று...
+
+உன் மனைவியாக ஆனது...
+
+என் வாழ்க்கையின் மிகப்பெரிய சந்தோஷம்.
+
+</p>
+
+<p>
+
+நீ என் வாழ்க்கையில் வந்த பிறகு...
+
+என் உலகமே அழகாக மாறிவிட்டது.
+
+</p>
+
+<p>
+
+எத்தனை சண்டைகள் வந்தாலும்...
+
+எத்தனை கஷ்டங்கள் வந்தாலும்...
+
+உன் கையை மட்டும் விடாமல்
+
+என்றும் உன்னுடன் வாழ வேண்டும்.
+
+</p>
+
+<p>
+
+❤️ இனிய திருமண நாள் நல்வாழ்த்துகள் மாமா ❤️
+
+</p>
+
+<p style="text-align:right;">
+
+— என்றும் உன் நித்யா ❤️
+
+</p>
+
+</div>
+
+<button onclick="showTimeline()">
+
+நம் பயணம் 💍
+
+</button>
+
+</div>
+
+</section>
+
+<!-- =========================
+     TIMELINE
+========================= -->
+
+<section id="timelinePage" style="display:none;">
+
+<div class="hero">
+
+<h1>💍 நம் வாழ்க்கை பயணம்</h1>
+
+<div style="font-size:22px;line-height:2.2;">
+
+<p>❤️ 17.01.2024 - முதல் சந்திப்பு</p>
+
+<p>💕 காதல் தொடங்கியது</p>
+
+<p>💍 07.07.2024 - திருமணம்</p>
+
+<p>🏡 இனிய வாழ்க்கை</p>
+
+<p>❤️ என்றும் ஒன்றாக...</p>
+
+</div>
+
+<button onclick="showFinal()">
+
+கடைசி Surprise 🎁
+
+</button>
+
+</div>
+
+</section>
+
+<!-- =========================
+     FINAL SURPRISE
+========================= -->
+
+<section id="finalPage" style="display:none;">
+
+<div class="hero">
+
+<h1 style="font-size:50px;">
+
+🎉 இனிய திருமண நாள் நல்வாழ்த்துகள் 🎉
+
+</h1>
+
+<h2 style="margin-top:20px;">
+
+❤️ என் மாமா ❤️
+
+</h2>
+
+<p style="font-size:22px;
+margin-top:30px;
+line-height:2;">
+
+என் வாழ்க்கையில் கிடைத்த
+
+மிகப்பெரிய பரிசு நீ தான்.
+
+<br><br>
+
+என்றும் உன்னை நேசிப்பேன்...
+
+❤️❤️❤️
+
+</p>
+
+<h1 style="margin-top:40px;">
+
+🌹 I Love You Forever 🌹
+
+</h1>
+
+</div>
+
+</section>
+
+<script>
+
+function openGift(){
+
+document.getElementById("giftPage").style.display="none";
+
+document.getElementById("passwordPage").style.display="flex";
+
+}
+
+function checkPassword(){
+
+let p=document.getElementById("password").value;
+
+if(p=="17012024"){
+
+document.getElementById("passwordPage").style.display="none";
+
+document.getElementById("homePage").style.display="block";
+
+let music=document.getElementById("bgMusic");
+
+if(music){
+
+music.play().catch(()=>{});
+
+}
+
+}else{
+
+alert("❌ Password தவறாக உள்ளது");
+
+}
+
+}
+
+function showStory(){
+
+homePage.style.display="none";
+
+storyPage.style.display="block";
+
+}
+
+function showGallery(){
+
+storyPage.style.display="none";
+
+galleryPage.style.display="block";
+
+}
+
+function showLetter(){
+
+galleryPage.style.display="none";
+
+letterPage.style.display="block";
+
+}
+
+function showTimeline(){
+
+letterPage.style.display="none";
+
+timelinePage.style.display="block";
+
+}
+
+function showFinal(){
+
+timelinePage.style.display="none";
+
+finalPage.style.display="block";
+
+}
+// ------------------------------
+// Auto Slideshow
+// ------------------------------
+
+const photos = [
+"photo1.jpg",
+"photo2.jpg",
+"photo3.jpg",
+"photo4.jpg",
+"photo5.jpg"
+];
+
+let currentPhoto = 0;
+
+setInterval(function(){
+
+let img = document.getElementById("slideImage");
+
+if(img){
+
+currentPhoto++;
+
+if(currentPhoto>=photos.length){
+
+currentPhoto=0;
+
+}
+
+img.style.opacity="0";
+
+setTimeout(function(){
+
+img.src=photos[currentPhoto];
+
+img.style.opacity="1";
+
+},500);
+
+}
+
+},3000);
+
+// ------------------------------
+// Background Music
+// ------------------------------
+
+window.onload=function(){
+
+for(let i=0;i<120;i++){
+
+let star=document.createElement("div");
+
+star.className="star";
+
+star.style.left=Math.random()*100+"%";
+
+star.style.top=Math.random()*100+"%";
+
+star.style.animationDelay=Math.random()*3+"s";
+
+document.querySelector(".sky").appendChild(star);
+
+}
+
+}
+
+// ------------------------------
+// Hearts Animation
+// ------------------------------
+
+setInterval(function(){
+
+let heart=document.createElement("div");
+
+heart.innerHTML="❤️";
+
+heart.style.position="fixed";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.top="-50px";
+
+heart.style.fontSize=(20+Math.random()*20)+"px";
+
+heart.style.zIndex="9999";
+
+heart.style.transition="6s linear";
+
+document.body.appendChild(heart);
+
+setTimeout(function(){
+
+heart.style.top="110vh";
+
+heart.style.opacity="0";
+
+},100);
+
+setTimeout(function(){
+
+heart.remove();
+
+},6000);
+
+},400);
+
+// ------------------------------
+// Rose Animation
+// ------------------------------
+
+setInterval(function(){
+
+let rose=document.createElement("div");
+
+rose.innerHTML="🌹";
+
+rose.style.position="fixed";
+
+rose.style.left=Math.random()*100+"vw";
+
+rose.style.top="-50px";
+
+rose.style.fontSize=(18+Math.random()*18)+"px";
+
+rose.style.zIndex="9999";
+
+rose.style.transition="8s linear";
+
+document.body.appendChild(rose);
+
+setTimeout(function(){
+
+rose.style.top="110vh";
+
+rose.style.transform="rotate(360deg)";
+
+rose.style.opacity="0";
+
+},100);
+
+setTimeout(function(){
+
+rose.remove();
+
+},8000);
+
+},700);
+
+const loveDate = new Date("2024-07-07T00:00:00");
+
+function updateCounter(){
+
+const now = new Date();
+
+const diff = now - loveDate;
+
+const years = Math.floor(diff/(1000*60*60*24*365));
+const days = Math.floor(diff/(1000*60*60*24));
+const hours = Math.floor(diff/(1000*60*60));
+const minutes = Math.floor(diff/(1000*60));
+const seconds = Math.floor(diff/1000);
+
+if(document.getElementById("years")){
+
+document.getElementById("years").innerHTML="💍 "+years+" வருடங்கள்";
+document.getElementById("days").innerHTML="📅 "+days+" நாட்கள்";
+document.getElementById("hours").innerHTML="⏰ "+hours+" மணி";
+document.getElementById("minutes").innerHTML="⏱️ "+minutes+" நிமிடங்கள்";
+document.getElementById("seconds").innerHTML="❤️ "+seconds+" விநாடிகள்";
+
+}
+
+}
+
+setInterval(updateCounter,1000);
+
+updateCounter();
+
+</script>
+
+<audio
+id="bgMusic"
+loop>
+
+<source
+src="music.mp3"
+type="audio/mpeg">
+
+</audio>
+
+</body>
+
+</html>
